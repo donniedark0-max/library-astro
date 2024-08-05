@@ -7,7 +7,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				atomic: ["Kalam", "cursive"],
+				kalam: ["Kalam", "cursive"],
+				inter: ["Roboto"],
 			},
 			colors: {
 				primary: "var(--color-primary)",
