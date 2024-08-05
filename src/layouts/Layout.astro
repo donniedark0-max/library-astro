@@ -1,4 +1,9 @@
 ---
+import { ViewTransitions } from "astro:transitions"
+
+import Header from '@/sections/Header.astro';
+import Footer from '@/sections/Footer.astro';
+import '@fontsource/kalam';
 interface Props {
 	title: string;
 }
@@ -7,44 +12,112 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="TODO" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
+
 	</head>
-	<body>
+	<body
+		class="overflow-x-hidden selection:bg-primary selection:text-secondary [&_:focus-visible]:outline-none [&_:focus-visible]:ring-2 [&_:focus-visible]:ring-primary"
+		>
+			<a
+				href="#main-content"
+				class="anchor-main-content fixed top-0 z-20 rounded-br-md bg-secondary px-3 py-5 text-primary opacity-0 focus:opacity-100"
+				>Saltar al contenido principal</a
+	>
+		<Header />
 		<slot />
+		<Footer />
+	</body>
 	</body>
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+				--color-primary: #000000;
+				--color-secondary: #b6e0ef;
+				--color-accent: #840000;
+				--color-accent-rgb: 213, 255, 0;
+
+				--background-color: #ffffff;
+				--background-twitch: var(--color-twitch-ice);
+
+			}
+
+
+			html {
+				font-family: "Kalam", system-ui, sans-serif;
+				background: var(--background-color);
+				scrollbar-gutter: stable;
+			}
+
+			main {
+				position: relative;
+			}
+
+			body {
+				&:has(dialog[open]) {
+					overflow: hidden;
+				}
+			}
+
+			/* Hiding class, making content visible only to screen readers but not visually */
+			/* "sr" meaning "screen-reader" */
+			.sr-only:not(:focus):not(:active) {
+				clip: rect(0 0 0 0);
+				clip-path: inset(50%);
+				height: 1px;
+				overflow: hidden;
+				position: absolute;
+				white-space: nowrap;
+				width: 1px;
+			}
+
+			@supports selector(::-webkit-scrollbar) {
+				@media (hover: hover) {
+					::-webkit-scrollbar {
+						width: 10px;
+						border-radius: 10px;
+					}
+
+					::-webkit-scrollbar-thumb {
+						border-radius: 10px;
+						background-color: theme("colors.primary");
+						border: 2px solid transparent;
+						background-clip: content-box;
+					}
+
+					::-webkit-scrollbar-thumb:active {
+						background-color: #666;
+					}
+
+					::-webkit-scrollbar-track {
+						background: var(--background-image);
+					}
+
+					::-webkit-scrollbar-corner {
+						background: var(--background-image);
+					}
+				}
+			}
+
+			@supports not selector(::-webkit-scrollbar) {
+				* {
+					scrollbar-color: theme("colors.primary") transparent;
+					scrollbar-width: thin;
+				}
+			}
+
+			.anchor-main-content {
+				pointer-events: none;
+			}
+
+			.anchor-main-content:focus {
+				pointer-events: all;
+			}
+		</style>
 </style>
