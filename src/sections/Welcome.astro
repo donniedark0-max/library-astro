@@ -1,11 +1,11 @@
 ---
-const text = "Te quiero en mi paraíso, es decir, que en mi país la gente viva feliz aunque no tenga permiso.";
+const text = "«Te quiero en mi paraíso, es decir, que en mi país la gente viva feliz aunque no tenga permiso».";
 const words = text.split(" ");
 ---
 
       <div class="justify-center h-3/4">
-        <div class="justify-center text-start">
-          <h1 class="text-primary font-inter xl:text-7xl sm:text-4xl pb-7 text-justify" style="opacity: 1;">
+        <div class="justify-center text-center">
+          <h1 class="text-primary font-inter xl:text-7xl sm:text-4xl pb-7 text-center" style="opacity: 1;">
             {words.map((word) => (
               <span class="text-black inline-block relative"  >
                 {word.split("").map((char) => (
@@ -16,7 +16,7 @@ const words = text.split(" ");
             ))}
           </h1>
           <small class="font-inter xl:text-lg sm:text-sm italic">
-            MARIO BENEDETTI
+            - MARIO BENEDETTI
           </small>
         </div>
         

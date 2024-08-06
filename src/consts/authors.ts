@@ -1,127 +1,49 @@
-import { type Author } from "@/types/Author"
+import { type Author } from "@/types/Author";
 
-const addGetters = (authors: Author[]): Author[] => {
-	return authors.map((author) => ({
-		...author,
-		get age() {
-			return new Date(new Date().getTime() - this.birthDate.getTime()).getFullYear() - 1970
-		},
-		get notableWorksTitles() {
-			return this.notableWorks?.map((work) => work.title) || []
-		},
-	}))
-}
-
-export const AUTHORS: Author[] = addGetters([
-	{
-		id: "mario-benedetti",
-		name: "Mario Benedetti",
-		birthDate: new Date(1920, 8, 14),
-		age: 89,
-		realName: "Mario Orlando Hardy Hamlet Brenno Benedetti Farrugia",
-		nationality: "uruguayo",
-		biography: "Mario Benedetti fue un escritor, poeta y dramaturgo uruguayo...",
-		gender: "masculino",
-		socials: {
-			website: "https://www.fundacionmariobenedetti.org",
-		},
-		notableWorks: [
-			{
-				title: "La Tregua",
-				year: 1960,
-				description: "Una novela sobre la vida monótona de un oficinista y su inesperado romance...",
-			},
-			{
-				title: "Gracias por el Fuego",
-				year: 1965,
-				description: "Una novela que trata sobre la opresión política y la lucha personal...",
-			},
-		],
-		awards: [
-			{
-				title: "Premio Reina Sofía de Poesía Iberoamericana",
-				year: 1999,
-			},
-			{
-				title: "Premio Internacional Menéndez Pelayo",
-				year: 2005,
-			},
-		],
-		portraitURL: "/authors/portraits/mario-benedetti.jpg",
-		website: "https://www.fundacionmariobenedetti.org",
-	},
+export const AUTHORS: Author[] = [
 	{
 		id: "gabriel-garcia-marquez",
 		name: "Gabriel García Márquez",
 		birthDate: new Date(1927, 2, 6),
-		age: 87,
-		realName: "Gabriel José de la Concordia García Márquez",
-		nationality: "colombiano",
-		biography: "Gabriel García Márquez fue un escritor, guionista y periodista colombiano...",
-		gender: "masculino",
-		socials: {
-			website: "https://www.gabrielgarciamarquez.org",
-		},
-		notableWorks: [
-			{
-				title: "Cien Años de Soledad",
-				year: 1967,
-				description: "Una novela que sigue la historia de la familia Buendía en el ficticio pueblo de Macondo...",
-			},
-			{
-				title: "El Amor en los Tiempos del Cólera",
-				year: 1985,
-				description: "Una novela que explora el amor de toda una vida entre Fermina Daza y Florentino Ariza...",
-			},
-		],
-		awards: [
-			{
-				title: "Premio Nobel de Literatura",
-				year: 1982,
-			},
-			{
-				title: "Premio Rómulo Gallegos",
-				year: 1972,
-			},
-		],
-		portraitURL: "/authors/portraits/gabriel-garcia-marquez.jpg",
-		website: "https://www.gabrielgarciamarquez.org",
+		deathDate: new Date(2014, 3, 17),
+		nationality: "Colombiano",
+		biography: 'El escritor Gabriel García Márquez nació en Arataca, Colombia, el 6 de marzo de 1927. Entre sus mayores logros está el Nobel de Literatura en 1982. Publicó su obra más exitosa, "Cien años de soledad" en 1967 y se convirtió en una de las novelas más importantes de la literatura del siglo XX.',
+		portraitURL: "https://www.anahuac.mx/generacion-anahuac/sites/default/files/articles/gabriel-garcia-marquez.jpg",
 	},
 	{
-		id: "jorge-luis-borges",
-		name: "Jorge Luis Borges",
-		birthDate: new Date(1899, 7, 24),
-		age: 86,
-		realName: "Jorge Francisco Isidoro Luis Borges",
-		nationality: "argentino",
-		biography: "Jorge Luis Borges fue un escritor, ensayista y bibliotecario argentino...",
-		gender: "masculino",
-		socials: {
-			website: "https://www.borges.es",
-		},
-		notableWorks: [
-			{
-				title: "Ficciones",
-				year: 1944,
-				description: "Una colección de cuentos que exploran temas de realidad, identidad y el infinito...",
-			},
-			{
-				title: "El Aleph",
-				year: 1949,
-				description: "Una colección de cuentos que tocan temas como la eternidad, el infinito y la existencia...",
-			},
-		],
-		awards: [
-			{
-				title: "Premio Internacional de Literatura",
-				year: 1961,
-			},
-			{
-				title: "Premio Miguel de Cervantes",
-				year: 1979,
-			},
-		],
-		portraitURL: "/authors/portraits/jorge-luis-borges.jpg",
-		website: "https://www.borges.es",
+		id: "miguel-de-cervantes",
+		name: "Miguel de Cervantes",
+		birthDate: new Date(1547, 8, 29),
+		deathDate: new Date(1616, 3, 23),
+		nationality: "Español",
+		biography: "Novelista, poeta y dramaturgo español. Se cree que nació el 29 de septiembre de 1547 en Alcalá de Henares y murió el 22 de abril de 1616 en Madrid, pero fue enterrado el 23 de abril y popularmente se conoce esta fecha como la de su muerte. Es considerado la máxima figura de la literatura española.",
+		portraitURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Cervantes_Jáuregui.jpg/1200px-Cervantes_Jáuregui.jpg",
 	},
-])
+	{
+		id: "george-orwell",
+		name: "George Orwell",
+		birthDate: new Date(1903, 5, 25),
+		deathDate: new Date(1950, 0, 21),
+		nationality: "Británico",
+		biography: "George Orwell fue un escritor y periodista británico, fue el autor de “Rebelión en la granja” y “1984”, esta última una profunda novela anti-utópica que describe un mundo empobrecido y dividido por la guerra permanente y sin tregua entre tres grandes superpotencias",
+		portraitURL: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa764be20-7c19-4057-bad6-868af1300454_1200x767.jpeg",
+	},
+	{
+		id: "f-scott-fitzgerald",
+		name: "F. Scott Fitzgerald",
+		birthDate: new Date(1896, 8, 24),
+		deathDate: new Date(1940, 11, 21),
+		nationality: "Estadounidense",
+		biography: "Fitzgerald es considerado miembro de la Generación Perdida de los años veinte. Escribió cinco novelas: El gran Gatsby, Suave es la noche, A este lado del paraíso, Hermosos y malditos y , que aunque sin terminar, fue publicada tras su muerte.",
+		portraitURL:"https://media.newyorker.com/photos/59097f142179605b11ad963c/master/pass/F-Scott-Fitzgerald-Imperfect-Romance-with-The-New-Yorker.jpg"
+	},
+	{
+		id: "harper-lee",
+		name: "Harper Lee",
+		birthDate: new Date(1926, 3, 28),
+		deathDate: new Date(2016, 1, 19),
+		nationality: "Estadounidense",
+		biography: "Nelle Harper Lee fu conocida por haber ganado el premio Pulitzer con su novela Matar a un ruiseñor. En 1999 fue elegida como la mejor novela del siglo a través de una votación de Library Journal.",
+		portraitURL: "https://hips.hearstapps.com/hmg-prod/images/gettyimages-50358657.jpg",
+	},
+];
