@@ -1,21 +1,24 @@
 ---
 import { AUTHORS } from "../consts/authors.ts"
 
-const selectedAuthors = AUTHORS.slice(0, 3);
+const selectedAuthors = AUTHORS.slice(0, AUTHORS.length);
 ---
 
-<section class="authors-info py-10 rounded-lg pt-32">
-    <h2 class="text-5xl font-bold mb-6">Autores memorables</h2>
-    <div class="flex w-full space-x-4 pl-7 overflow-x-scroll" style="linear-gradient: ">
+<section class="authors-info py-10 rounded-lg pt-32 relative overflow-hidden">
+    <h2 class="text-5xl font-bold">Autores memorables</h2>
+    <hr
+		class="top-0 h-[0.5px] w-full min-w-[18rem] border-t-0 bg-transparent bg-gradient-to-r from-transparent via-gray-950 to-transparent bg-center md:my-3"
+	/>
+    <div class="relative w-full flex space-x-4 px-7 overflow-x-scroll snap-x  snap-mandatory">
         {selectedAuthors.map(author => (
-            <div class="author flex-shrink-0 w-full sm:w-1/2 lg:w-[90%] p-6 bg-slate-900 text-secondary rounded-xl" accesskey={author.id}>
+            <div class="author flex-shrink-0 w-full sm:w-1/2 lg:w-[90%] p-6 bg-slate-950 rounded-3xl snap-center" accesskey={author.id}>
                 <picture class="block mx-auto mb-4"> 
-                    <img src={author.portraitURL} alt={'retrato de ${author.name]'} class="w-full h-auto rounded-xl" style="mask-image:radial-gradient(black 10%, transparent 100%)">
+                    <img src={author.portraitURL} alt={'retrato de ${author.name]'} class="w-full h-[600px] rounded-xl object-cover" style="mask-image:radial-gradient(black 5%, transparent 100%)">
                 </picture>
-                <h3 class="text-2xl font-semibold mb-2">{author.name}</h3>
-                <p class="mb-2"><strong>Fecha de nacimiento:</strong> {author.birthDate?.toLocaleDateString()}</p>
-                <p>{author.biography}</p>
+                <h3 class="text-4xl text-white font-bold mb-2">{author.name}</h3>
+                <p class="mb-2 italic text-xl font-font-inter  text-indigo-50"><strong>Fecha de nacimiento:</strong> {author.birthDate?.toLocaleDateString()}</p>
+                <p class="text-indigo-50 leading-8 tracking-wide font-inter text-xl">{author.biography}</p>
             </div>
-        ))},
+      ))},
     </div>
 </section>

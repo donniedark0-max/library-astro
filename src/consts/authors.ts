@@ -17,7 +17,7 @@ export const AUTHORS: Author[] = [
 		deathDate: new Date(1616, 3, 23),
 		nationality: "Español",
 		biography: "Novelista, poeta y dramaturgo español. Se cree que nació el 29 de septiembre de 1547 en Alcalá de Henares y murió el 22 de abril de 1616 en Madrid, pero fue enterrado el 23 de abril y popularmente se conoce esta fecha como la de su muerte. Es considerado la máxima figura de la literatura española.",
-		portraitURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Cervantes_Jáuregui.jpg/1200px-Cervantes_Jáuregui.jpg",
+		portraitURL: "https://th.bing.com/th/id/OIP.Ax77hUZLlceaOHT5GFjZwwHaGL?rs=1&pid=ImgDetMain",
 	},
 	{
 		id: "george-orwell",
