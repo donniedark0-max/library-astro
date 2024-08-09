@@ -1,10 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
+import FiltersBooks from '@/sections/FiltersBooks.astro';
+import BooksGrid from '@/sections/BooksGrid.astro';
 ---
 <Layout 
     title="Libros - Library Donnie"
     >
-
+    <main>
+    <FiltersBooks />
+    <BooksGrid />
+    </main>
     
 </Layout>

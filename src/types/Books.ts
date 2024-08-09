@@ -10,6 +10,7 @@ export type Book = {
 	publisher?: string; // Optional property for the publisher's name
 	isbn?: string; // Optional property for the International Standard Book Number
 	coverImageUrl?: string; // Optional property for the URL of the book's cover image
+	description?: string;
 	awards?: Array<{
 		title: string;
 		year: number;
